@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $project_start
  * @property Carbon|null $project_date
  * @property string|null $project_links
+ * @property string|null $project_milestone
  * 
  * @property USER $u_s_e_r
  * @property PROJECTSTATUS $p_r_o_j_e_c_t_s_t_a_t_u_s
@@ -33,11 +34,9 @@ class PROJECT extends Model
 {
 	protected $table = 'PROJECTS';
 	protected $primaryKey = 'ID';
-	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID' => 'int',
 		'USER_ID_PM' => 'int',
 		'PROJECT_STATUS_ID' => 'int',
 		'project_start' => 'datetime',
@@ -51,7 +50,8 @@ class PROJECT extends Model
 		'project_desc',
 		'project_start',
 		'project_date',
-		'project_links'
+		'project_links',
+		'project_milestone'
 	];
 
 	public function u_s_e_r()

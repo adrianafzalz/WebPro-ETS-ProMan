@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
+    public function showRegisForm()
+    {
+        return view('auth.regis');
+    }
+
+    public function attemptRegis()
+    {
+
+    }
+
+
     public function showLoginForm()
     {
         return view('auth.login');
@@ -31,9 +42,9 @@ class AuthController extends Controller
 
         $getUser = USER::where('user_name', $request->input('user_name'))->first();
 
-        // error_log($getUser);
-        // error_log( strlen(Hash::make($request->input('password'))) );
-        // error_log(strlen($getUser->password));
+        error_log($getUser);
+        error_log( strlen(Hash::make($request->input('password'))) );
+        error_log(strlen($getUser->password));
         // if ($getUser && Hash::check($request->input('password'), $getUser->password)) {
             // Auth::login($getUser);
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('PROJECT_TECHS', function (Blueprint $table) {
-            $table->integer('ID')->primary();
+            $table->increments('ID')->primary();
             $table->string('tech_icon_url', 1023)->nullable();
             $table->string('tech_name');
             $table->char('tech_color', 7);

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('PROJECT_STATUS', function (Blueprint $table) {
-            $table->integer('ID')->primary();
+            $table->increments('ID')->primary();
             $table->string('status_name')->nullable();
             $table->string('status_icon_url', 1023)->nullable();
         });

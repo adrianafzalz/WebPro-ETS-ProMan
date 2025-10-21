@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('PROJECTS', function (Blueprint $table) {
-            $table->integer('ID')->primary();
-            
+            $table->increments('ID')->primary();
             $table->integer('USER_ID_PM');
             $table->integer('PROJECT_STATUS_ID');
             $table->string('project_name');
@@ -21,6 +20,7 @@ return new class extends Migration
             $table->date('project_start')->nullable();
             $table->date('project_date')->nullable();
             $table->json('project_links')->nullable();
+            $table->json('project_milestone')->nullable();
         });
     }
 

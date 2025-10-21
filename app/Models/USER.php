@@ -1,55 +1,59 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+
 
 /**
- * Auth wrapper model that maps Laravel auth to the existing `USER` table.
- * This file is safe to add and does not modify your existing generated `USER.php`.
+ * Class USER
+ * 
+ * @property int $ID
+ * @property string $user_name
+ * @property string $password
+ * @property string|null $user_desc
+ * @property string|null $user_bg_color
+ * @property string|null $user_fg_color
+ * @property string|null $user_accent_color
+ * 
+ * @property Collection|COLLABORATOR[] $c_o_l_l_a_b_o_r_a_t_o_r_s
+ * @property Collection|PROJECT[] $p_r_o_j_e_c_t_s
+ *
+ * @package App\Models
  */
-class User extends Authenticatable
+class USER extends Authenticatable
 {
-    use Notifiable;
+	protected $table = 'USER';
+	protected $primaryKey = 'ID';
 
-    // Use the existing table
-    protected $table = 'USER';
+	public $timestamps = false;
 
-    // Primary key column name
-    protected $primaryKey = 'ID';
+	protected $hidden = [
+		'password'
+	];
 
-    // The existing table doesn't use auto-increment in current migration
-    public $incrementing = false;
+	protected $fillable = [
+		'user_name',
+		'password',
+		'user_desc',
+		'user_bg_color',
+		'user_fg_color',
+		'user_accent_color'
+	];
 
-    // No timestamps on your USER table
-    public $timestamps = false;
+	public function c_o_l_l_a_b_o_r_a_t_o_r_s()
+	{
+		return $this->hasMany(COLLABORATOR::class, 'USER_ID');
+	}
 
-    protected $casts = [
-        'ID' => 'int',
-    ];
-
-    // Hide password from JSON
-    // protected $hidden = [
-    //     'password',
-    // ];
-
-    // Allow mass assignment for fields we may need
-    protected $fillable = [
-		'ID',
-        'user_name',
-        'password',
-        'user_desc',
-        'user_bg_color',
-        'user_fg_color',
-        'user_accent_color',
-    ];
-
-    /**
-     * Return the field to be used as the username for forms/helpers.
-     */
-    public static function usernameField(): string
-    {
-        return 'user_name';
-    }
+	public function p_r_o_j_e_c_t_s()
+	{
+		return $this->hasMany(PROJECT::class, 'USER_ID_PM');
+	}
 }

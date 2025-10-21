@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('MILESTONES', function (Blueprint $table) {
-            $table->integer('ID')->primary();
-            $table->string('milestone_title')->nullable();
-
-            $table->index(['ID'], 'table_6_mpn34fmhvdc97slrob1_index_0');
+        Schema::create('COLLABORATORS', function (Blueprint $table) {
+            $table->increments('ID')->primary();
+            $table->integer('USER_ID');
+            $table->integer('PROJECTS_ID');
+            $table->string('role')->nullable();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('MILESTONES');
+        Schema::dropIfExists('COLLABORATORS');
     }
 };

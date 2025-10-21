@@ -26,7 +26,8 @@ Route::prefix('/user/')->group(function() {
 });
 
 use App\Http\Controllers\AuthController;
-
+Route::get('/register', [AuthController::class, 'showRegisForm'])->name('regis');
+Route::post('/register', [AuthController::class, 'attemptRegis'])->name('regis.attempt');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.attempt');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
