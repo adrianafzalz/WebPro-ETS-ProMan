@@ -9,7 +9,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+// use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
 
 /**
@@ -28,7 +28,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
  *
  * @package App\Models
  */
-class USER extends Authenticatable implements AuthenticatableContract
+class User extends Authenticatable 
 {
 	protected $table = 'USER';
 	protected $primaryKey = 'ID';

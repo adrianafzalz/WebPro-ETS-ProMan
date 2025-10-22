@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\USER;
+use App\Models\User;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 
 Route::get('/coba', function () {
-    return USER::all();
+    return User::all();
 });
 
 /* ------------------------------- User route ------------------------------- */
