@@ -1,0 +1,182 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  width: 700px;
+  height: 883px;
+  max-width: 90%;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* key for absolute child positioning */
+}
+
+.modal-content {
+  flex: 1; /* this lets content take up remaining space */
+  overflow-y: auto; /* scroll if content too long */
+  padding-bottom: 60px; /* space so buttons don't overlap */
+}
+
+
+
+h2 {
+  margin: 0;
+  font-size: 25px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.subtitle {
+  color: #7F889A;
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+}
+
+input, select, textarea {
+  width: 100%;
+  height: 41px;
+  padding: 0px 10px;
+  border: 1px solid #7F889A;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+input {
+  color: #7F889A; /* abu-abu untuk placeholder */
+}
+
+input:valid {
+  color: #000; 
+}
+
+select {
+  color: #7F889A; /* abu-abu untuk placeholder */
+}
+
+select:valid {
+  color: #000; 
+}
+
+textarea {
+  resize: vertical;
+  height: 80px;
+  padding: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.col {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.inline-input {
+  display: flex;
+  gap: 6px;
+}
+
+.add-btn {
+  
+  background-color: #577101;
+  color: #fff;
+  border: none;
+  width: 32px;
+  height: 41px;
+  border-radius: 6px;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn:hover {
+  background-color: #6b8a0a;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(87, 113, 1, 0.4);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+.actions {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.cancel-btn {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: all 0.25s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-1px);
+  width: 130px;
+  height: 41px;
+  font-size: 15px;
+}
+
+.create-btn {
+
+  background: #577101;
+  color: #fff;
+  border: none;
+  width: 130px;
+  height: 41px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+.create-btn:hover {
+  background-color: #6b8a0a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(87, 113, 1, 0.3);
+}
+
+.create-btn:active {
+  transform: scale(0.97);
+}
