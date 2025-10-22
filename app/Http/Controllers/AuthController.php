@@ -78,7 +78,7 @@ class AuthController extends Controller
         User::create(['user_name'=>$request->input('user_name'),'password'=>Hash::make($request->input('password'))]);
 
         // Log the user in 
-        $user =  User::where('user_name', $request->input('user_name'))->first();
+        $user = User::where('user_name', $request->input('user_name'))->first();
         if ($user) {
             Auth::login($user);
             $request->session()->regenerate();
