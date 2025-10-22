@@ -32,18 +32,23 @@ class COLLABORATOR extends Model
 		'PROJECTS_ID' => 'int'
 	];
 
+	protected $hidden = [
+		'USER_ID',
+		'PROJECTS_ID',
+	];
+
 	protected $fillable = [
 		'USER_ID',
 		'PROJECTS_ID',
 		'role'
 	];
 
-	public function u_s_e_r()
+	public function user()
 	{
 		return $this->belongsTo(USER::class, 'USER_ID');
 	}
 
-	public function p_r_o_j_e_c_t()
+	public function project()
 	{
 		return $this->belongsTo(PROJECT::class, 'PROJECTS_ID');
 	}

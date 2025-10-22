@@ -4,38 +4,73 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Arr;
 
 use App\Models\PROJECT;
+use App\Models\COLLABORATOR;
 
 class UserController extends Controller
 {
     public function seeUserProject(string $id) {
 
-        return PROJECT::where('USER_ID_PM', $id);
+        $logged_id = Auth::id();
+        if ($logged_id != null && (int) $logged_id == (int) $id ) {
+            return redirect()->route('user.me');
+        }
+
+
+        $project_fetch_res = PROJECT::where("USER_ID_PM", $id)->get()->flatMap(fn ($i) => [$i]);
+        $project_fetch_res_as_collab = COLLABORATOR::where("USER_ID","=",$id)->get()->flatMap(fn ($i) => [$i->project]);//->flatMap(fn ($collaborator) => $collaborator->project);
+
+        // error_log($fetch_res);
+        // error_log($fetch_res_as_collab);
+
+        $all_project_res = $project_fetch_res->merge($project_fetch_res_as_collab)->unique('ID')->values();
+
+        for ($i = 0; $i < sizeof($all_project_res); $i++) {
+            $all_project_res[$i]->project_status;
+            $all_project_res[$i]->project_tech_stacks;
+            $all_project_res[$i]->collaborators;
+        }
+
+        $all_project_res = $all_project_res->map(function ($project) {
+            // Convert each model to an array and remove the keys
+            return Arr::except($project->toArray(), ['project_start', 'project_date','project_links','project_milestone','PROJECT_STATUS_ID','USER_ID_PM']);
+        });
+
+        // return $fetch_res;
+        return view('user.profile')->with('projects',$all_project_res);
     }
     
+
+
+
     public function seeMyProject() {
+
         $logged_id = Auth::id();
 
-        $fetch_res = PROJECT::where("USER_ID_PM", $logged_id)->get();
 
 
-        $final_data = [];
+        $project_fetch_res = PROJECT::where("USER_ID_PM", $logged_id)->get()->flatMap(fn ($i) => [$i]);
+        $project_fetch_res_as_collab = COLLABORATOR::where("USER_ID","=",$logged_id)->get()->flatMap(fn ($i) => [$i->project]);//->flatMap(fn ($collaborator) => $collaborator->project);
 
-        for ($i = 0; $i < sizeof($fetch_res); $i++) {
-            // error_log()
-            $fetch_res[$i]->p_r_o_j_e_c_t_s_t_a_t_u_s;
-            $fetch_res[$i]->p_r_o_j_e_c_t_t_e_c_h_s_t_a_c_k_s;
-            // $fetch_res[$i]->status = $fetch_res[$i]->p_r_o_j_e_c_t_s_t_a_t_u_s->status_name;
+        // error_log($fetch_res);
+        // error_log($fetch_res_as_collab);
+
+        $all_project_res = $project_fetch_res->merge($project_fetch_res_as_collab)->unique('ID')->values();
+
+        for ($i = 0; $i < sizeof($all_project_res); $i++) {
+            $all_project_res[$i]->project_status;
+            $all_project_res[$i]->project_tech_stacks;
+            $all_project_res[$i]->collaborators;
         }
-        //     array_push($final_data, $fetch_res[i]->status)
-        // }
 
+        $all_project_res = $all_project_res->map(function ($project) {
+            // Convert each model to an array and remove the keys
+            return Arr::except($project->toArray(), ['project_start', 'project_date','project_links','project_milestone','PROJECT_STATUS_ID','USER_ID_PM']);
+        });
 
-        // $fetch_res = PROJECT::where("USER_ID_PM", $logged_id)->find(1)->p_r_o_j_e_c_t_s_t_a_t_u_s->toJson();
-        // $fetch_res = PROJECT::where("USER_ID_PM", $logged_id)->p_r_o_j_e_c_t_s_t_a_t_u_s;
-        // for (i = 0; i < )
-        return $fetch_res;
-
+        // return $fetch_res;
+        return view('user.profile')->with('projects',$all_project_res);
     }
 }

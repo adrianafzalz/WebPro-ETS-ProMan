@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('PROJECT_TECH_STACK', function (Blueprint $table) {
-            $table->integer('ID')->primary();
+            $table->increments('ID')->primary();
             $table->integer('TECH_ID')->nullable();
             $table->integer('PROJECTS_ID')->nullable();
         });

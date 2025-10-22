@@ -58,6 +58,43 @@ class AuthController extends Controller
         ])->onlyInput('user_name');
     }
 
+    public function register(Request $request) {
+        $request->validate([
+            'user_name' => 'required|string',
+            'password' => 'required|string',
+        ]);
+        
+
+        // check user_name is available
+        $is_user_name_taken = (USER::where('user_name','LIKE',$request->input('user_name'))->count()) > 0;
+
+        if ($is_user_name_taken) {
+            return back()->withErrors([
+                'user_name' => 'user_name has already taken by someone else',
+            ])->onlyInput('user_name');
+            return;
+        }
+
+        USER::create(['user_name'=>$request->input('user_name'),'password'=>Hash::make($request->input('password'))]);
+
+        // Log the user in 
+        $user = USER::where('user_name', $request->input('user_name'))->first();
+        if ($user) {
+            Auth::login($user);
+            $request->session()->regenerate();
+        }
+
+        return redirect()->route('user.profile', ['id' => Auth::id()]);
+
+        return;
+
+
+        // $credentials = [
+        //     'user_name' => $request->input('user_name'),
+        //     'password' => $request->input('password'),
+        // ];
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();

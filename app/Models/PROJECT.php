@@ -40,7 +40,9 @@ class PROJECT extends Model
 		'USER_ID_PM' => 'int',
 		'PROJECT_STATUS_ID' => 'int',
 		'project_start' => 'datetime',
-		'project_date' => 'datetime'
+		'project_date' => 'datetime',
+		'project_links' => 'array',
+		'project_links' => 'array',
 	];
 
 	protected $fillable = [
@@ -54,23 +56,26 @@ class PROJECT extends Model
 		'project_milestone'
 	];
 
-	public function u_s_e_r()
+	public function project_manager()
 	{
 		return $this->belongsTo(USER::class, 'USER_ID_PM');
 	}
 
-	public function p_r_o_j_e_c_t_s_t_a_t_u_s()
+	public function project_status()
 	{
 		return $this->belongsTo(PROJECTSTATUS::class, 'PROJECT_STATUS_ID');
 	}
 
-	public function c_o_l_l_a_b_o_r_a_t_o_r_s()
+	public function collaborators()
 	{
-		return $this->hasMany(COLLABORATOR::class, 'PROJECTS_ID');
+		// return $this->hasMany(COLLABORATOR::class, 'PROJECTS_ID');
+		return $this->belongsToMany(USER::class, 'COLLABORATORS','PROJECTS_ID','USER_ID')
+					->withPivot('role');
 	}
 
-	public function p_r_o_j_e_c_t_t_e_c_h_s_t_a_c_k_s()
+	public function project_tech_stacks()
 	{
-		return $this->hasMany(PROJECTTECHSTACK::class, 'PROJECTS_ID');
+		return $this->belongsToMany(PROJECTTECH::class, 'PROJECT_TECH_STACK','PROJECTS_ID','TECH_ID');
+		// return $this->hasMany(PROJECTTECHSTACK::class, 'PROJECTS_ID');
 	}
 }
