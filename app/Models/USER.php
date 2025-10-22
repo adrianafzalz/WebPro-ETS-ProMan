@@ -58,3 +58,7 @@ class User extends Authenticatable
 		return $this->hasMany(PROJECT::class, 'USER_ID_PM');
 	}
 }
+
+// if (!class_exists(\App\Models\User::class) && file_exists(__DIR__ . '/User.php')) {
+// 	require_once __DIR__ . '/User.php';
+// }
