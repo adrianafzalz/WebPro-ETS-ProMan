@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\USER;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +40,7 @@ class AuthController extends Controller
             'password' => $request->input('password'),
         ];
 
-        $getUser = User::where('user_name', $request->input('user_name'))->first();
+        $getUser = USER::where('user_name', $request->input('user_name'))->first();
 
         error_log($getUser);
         error_log( strlen(Hash::make($request->input('password'))) );
@@ -66,7 +66,7 @@ class AuthController extends Controller
         
 
         // check user_name is available
-        $is_user_name_taken = (User::where('user_name','LIKE',$request->input('user_name'))->count()) > 0;
+        $is_user_name_taken = (USER::where('user_name','LIKE',$request->input('user_name'))->count()) > 0;
 
         if ($is_user_name_taken) {
             return back()->withErrors([
@@ -75,10 +75,10 @@ class AuthController extends Controller
             return;
         }
 
-        User::create(['user_name'=>$request->input('user_name'),'password'=>Hash::make($request->input('password'))]);
+        USER::create(['user_name'=>$request->input('user_name'),'password'=>Hash::make($request->input('password'))]);
 
         // Log the user in 
-        $user = User::where('user_name', $request->input('user_name'))->first();
+        $user = USER::where('user_name', $request->input('user_name'))->first();
         if ($user) {
             Auth::login($user);
             $request->session()->regenerate();

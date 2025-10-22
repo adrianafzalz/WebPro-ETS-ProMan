@@ -28,7 +28,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  * @package App\Models
  */
-class User extends Authenticatable 
+class USER extends Authenticatable 
 {
 	protected $table = 'USER';
 	protected $primaryKey = 'ID';
