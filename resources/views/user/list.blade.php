@@ -35,7 +35,7 @@
                     </form>
                 @else
                     <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="{{ asset('https://pouch.jumpshare.com/preview/ATkIwzDBRJjWHfbndB4-fYccJJaUHCfwcvT2KD49FZuDN2THK6Yf9No3gab__IZlMnteyYIv80t-8hy424wsU8_gDQQkv4SCiEdB6akbGxs') }}"></button></a>
-                    <a href="{{ route('register') }}"><button class="register">Register</button></a>
+                    <a href="{{ route('regis') }}"><button class="register">Register</button></a>
                 @endauth
             </div>
         </div>
@@ -52,14 +52,26 @@
         <section class="projects">
             {{-- Loop project list --}}
             @forelse($projects as $project)
+                @php
+                    $id = data_get($project, 'ID');
+                    $name = data_get($project, 'project_name');
+                    $desc = data_get($project, 'project_desc');
+                    $status = data_get($project, 'project_status.status_name') ?? data_get($project, 'project_status.status_name', '');
+                    $techs = data_get($project, 'project_tech_stacks', []);
+                    $collabs = data_get($project, 'collaborators', []);
+                @endphp
                 <div class="card {{ strtolower($project->status_color ?? 'green') }}">
                     <div class="card-content">
-                        <h3>{{ $project->name }}</h3>
-                        <p>{{ Str::limit($project->description, 100) }}</p>
+                        <h3>{{ $name }}</h3>
+                        <p>{{ Str::limit($desc, 100) }}</p>
 
                         <div class="tags">
-                            @foreach($project->technologies ?? ['Laravel', 'PHP'] as $tech)
-                                <span>{{ $tech }}</span>
+                            @foreach($techs ?? ['Laravel', 'PHP'] as $tech)
+                                @php
+                                    $techName = data_get($tech, 'tech_name');
+                                    $techColor = data_get($tech, 'tech_color') ?: '#d1d5db';
+                                @endphp
+                                <span>{{ $techName }}</span>
                             @endforeach
                         </div>
 
@@ -74,7 +86,7 @@
                                     </a>
                                 @endif
                             </div>
-                            <a href="{{ route('project.detail', $project->id) }}">
+                            <a href="{{ route('project.detail', $id) }}">
                                 <button class="details-btn">Details</button>
                             </a>
                         </div>

@@ -51,7 +51,8 @@ class UserController extends Controller
         });
 
         // return $fetch_res;
-        return view('user.profile')->with('projects',$all_project_res);
+        // return view('user.profile')->with('projects',$all_project_res);
+        return view('user.list')->with('projects',$all_project_res);
     }
     
 

@@ -50,7 +50,7 @@ Route::prefix('/project')->group(function() {
     Route::get('/create', [ProjectController::class, 'createPage'])->name('project.create.page')->middleware('authCheck');
     Route::post('/create', [ProjectController::class, 'createProject'])->name('project.create.attempt')->middleware('authCheck');
     
-    Route::get('/detail/{id}', [ProjectController::class, 'seeProject'])->name('project.see');
+    Route::get('/detail/{id}', [ProjectController::class, 'seeProject'])->name('project.detail');
 
     Route::post('/edit', [ProjectController::class, 'createProject'])->name('project.create')->middleware('authCheck');
     // Route::post('/create', [ProjectController::class, 'createProject'])->name('project.create');
