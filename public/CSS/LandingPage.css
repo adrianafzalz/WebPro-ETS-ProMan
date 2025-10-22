@@ -1,0 +1,184 @@
+body {
+	font-family: "Zen Kaku Gothic Antique", sans-serif;
+  	font-weight: 400;
+  	font-style: normal;
+}
+
+.bg-fullscreen{
+	min-height: 100vh;
+	min-width: 1152px;
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+	justify-content:center;
+	background-image: url(https://i.postimg.cc/NG3JyLrq/Desktop-1-1.png);
+	box-sizing:border-box;
+	background-size: cover;
+	background-position: center;
+}
+
+.top-half, .bottom-half {
+    width: 100%;
+    height: 50vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.top-half {
+    flex-direction: column;
+    text-align: center;
+}
+
+.hero-text {
+    position: relative;
+    top: 40px;
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.hero-text h1 .line-two {
+    color: #d5ff01;
+    font-weight: bold;
+}
+
+.hero-text p {
+    font-size: 14px;
+    color: #f0f0f0;
+}
+
+.bottom-half {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35%;
+    top: -125px;
+}
+
+.search-section input {
+    width: 100%;
+    padding: 10px 60px 10px 20px;
+    border-radius: 12px;
+    background-color: #fdfdfdbf;
+    border: none;
+    color: rgb(0, 0, 0);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.search-section input::placeholder {
+	color: rgba(0, 0, 0, 0.6);
+    font-family: 'poppins', sans-serif;
+    font-weight: 400;
+}
+
+.search-icon {
+    position: absolute;
+    right: 31px;
+    width: 20px; 
+    height: 20px;
+    pointer-events: none;
+}
+
+.promo-text-section p {
+    font-size: 24px;
+    top: -60px;
+    text-align: center;
+    color: #f0f0f0;
+    position: relative;
+    font-weight: bold;
+}
+
+.promo-text-section .t1 {
+    color: #ffffff;
+}
+
+.promo-text-section .t2 {
+    color: #fff;
+}
+
+.promo-text-section .t3 {
+    color: #d5ff01;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 55px;
+    top: -50px;
+    position: relative;
+}
+
+.action-buttons button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+}
+
+.sign-in-button button {
+    background-color: white;
+    color: #4D5C00;
+}
+
+.sign-in-button button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: 3px solid #4D5C00;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.sign-in-button button:hover {
+	box-shadow: 0 2px 0 #2f3800;
+}
+
+.sign-in-button button:hover::after {
+	opacity: 1;
+}
+
+.register-button button {
+    background-color: #4D5C00;
+    color: white;
+}
+
+.register-button button::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border: 2px solid #d5ff04;
+	border-radius: 5px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	pointer-events: none;
+}
+
+.register-button button:hover {
+	box-shadow: 0 2px 0 #2f3800;
+}
+
+.register-button button:hover::after {
+	opacity: 1;
+}
