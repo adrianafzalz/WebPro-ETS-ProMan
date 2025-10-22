@@ -8,9 +8,21 @@ use Illuminate\Support\Arr;
 
 use App\Models\PROJECT;
 use App\Models\COLLABORATOR;
+use App\Models\USER;
 
 class UserController extends Controller
 {
+
+    public function findUser(string $user_name_input)
+    {
+        error_log($user_name_input);
+        // $user_id = DB::select(" SELECT * FROM public.\"USER\" WHERE user_name % 'oragn' ORDER BY similarity(user_name, 'oragn') DESC;")
+        $find_res = USER::selectRaw('*, similarity(user_name, ?) as score', [$user_name_input])->whereRaw('user_name % ?', [$user_name_input])->orderBy('score','DESC');
+        if ($find_res->count() <= 0) {
+            return redirect()->route('landingPage');
+        }
+        return redirect()->route('user.profile',['id' => $find_res->first()->ID]);
+    }
     public function seeUserProject(string $id) {
 
         $logged_id = Auth::id();

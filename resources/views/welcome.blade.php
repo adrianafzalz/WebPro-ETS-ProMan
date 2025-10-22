@@ -37,9 +37,28 @@
         <div class="bottom-half">
             <div class="search-section">
                 <input type="text" placeholder="Search projects, tasks, or teams...">
-                <img src="{{ asset('https://i.postimg.cc/zXBRCkZz/Oval.png') }}" alt="Search Icon" class="search-icon">
+                <button id="searchBtn" type="button" class="btn-primary" style="cursor: pointer">Search</button>
+                {{-- <img src="https://drive.google.com/uc?export=view&id=1jsdtmSUXDAnj6b873MqGG_j9_labEIKq" alt="Search Icon" class="search-icon"> --}}
             </div>
 
+            <script>
+            $(function(){
+                $('#searchBtn').on('click', function(){
+                    const q = $('.search-section input[type="text"]').val().trim();
+                    console.log(q);
+                    if (!q) {
+                        $('.search-section input[type="text"]').focus();
+                        return;
+                    }
+                    // Go to your search route with query param (adjust URL if needed)
+                    window.location.href = '{{ url("/user/find") }}' + "/" + encodeURIComponent(q);
+                });
+
+                $('#clearBtn').on('click', function(){
+                    $('.search-section input[type="text"]').val('').focus();
+                });
+            });
+            </script>
             <div class="promo-text-section">
                 <p>
                     <span class="t1">Let’s</span> 

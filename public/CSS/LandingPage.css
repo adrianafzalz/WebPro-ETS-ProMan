@@ -11,7 +11,8 @@ body {
 	flex-direction: column;
 	align-items:center;
 	justify-content:center;
-	background-image: url(https://i.postimg.cc/NG3JyLrq/Desktop-1-1.png);
+	/* background-image: url('https://i.postimg.cc/NG3JyLrq/Desktop-1-1.png'); */
+	background-image: url('https://drive.google.com/uc?export=view&id=1-0QxzdOIqJdB8InIaMaT0rOZB2vbLKwU');
 	box-sizing:border-box;
 	background-size: cover;
 	background-position: center;
@@ -67,7 +68,7 @@ body {
     top: -125px;
 }
 
-.search-section input {
+.search-section input:nth-child(1) {
     width: 100%;
     padding: 10px 60px 10px 20px;
     border-radius: 12px;
@@ -78,7 +79,7 @@ body {
     box-sizing: border-box;
 }
 
-.search-section input::placeholder {
+.search-section input::placeholder:nth-child(1) {
 	color: rgba(0, 0, 0, 0.6);
     font-family: 'poppins', sans-serif;
     font-weight: 400;

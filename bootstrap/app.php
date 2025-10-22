@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         // register authCheck middleware alias
         $middleware->alias([
             'authCheck'=> \App\Http\Middleware\authCheck::class,
+            'cors'=> \App\Http\Middleware\Cors::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

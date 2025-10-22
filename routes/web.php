@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('cors')->name('landingPage');
 
 
 Route::get('/coba', function () {
@@ -19,7 +19,7 @@ Route::get('/coba', function () {
 /* ------------------------------- User route ------------------------------- */
 use App\Http\Controllers\UserController;
 Route::prefix('/user/')->group(function() {
-
+    Route::get('/find/{user_name_input}',[UserController::class, 'findUser'] )->name('user.find');
     Route::get('/me', [UserController::class, 'seeMyProject'])->name('user.me')->middleware('authCheck');
     Route::get('/{id}', [UserController::class, 'seeUserProject'])->name('user.profile');
 
