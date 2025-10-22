@@ -47,7 +47,7 @@ class ProjectController extends Controller
         $project_fetch->project_tech_stacks;
         $project_fetch->collaborators;
 
-        return $project_fetch;
+        return view('project.projectdetails')->with('project',$project_fetch);
 
     }
 

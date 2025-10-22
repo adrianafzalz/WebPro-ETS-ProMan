@@ -1,0 +1,343 @@
+body {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #1E2400;
+    color: #fff;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 270px;
+    background-color: #4D5C00;
+    border-radius: 0 0 30px 30px;
+}
+
+.logo {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    height: 32px;
+    width: 32px;
+}
+
+.status {
+    position: absolute;
+    left: 75px;
+    bottom: 18px;
+}
+
+main {
+    min-height: 150vh;
+    background-color: #1E2400;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.project-tab {
+    margin-top: 60px;
+    width: calc(100% - 150px);
+    min-height: 100vh;
+    border-radius: 20px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.project-name-time h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.project-times-details {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #A5A64B;
+    font-size: 0.9rem;
+}
+
+.project-tab-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.project-tab-buttons button {
+    position: relative;
+    top: 18px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-tab-buttons button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid #d5ff04;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.project-tab-buttons button:hover {
+    box-shadow: 0 2px 0 #2f3800;
+}
+
+.project-tab-buttons button:hover::after {
+    opacity: 1;
+}
+
+.project-tab-buttons .edit-btn {
+    position: relative;
+    top: 18px;
+    padding: 6px 14px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.project-tab-buttons .edit-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.215);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.project-tab-buttons .edit-btn:hover {
+    box-shadow: 0 2px 0 #2f3800;
+}
+
+.project-tab-buttons .edit-btn:hover::after {
+    opacity: 1;
+}
+
+.edit-btn {
+    background-color: transparent;
+    border: 3px solid #B6BD16;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.delete-btn {
+    background-color: #780D0D;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.project-description {
+    margin: 20px 0;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px 450px 0 0;
+}
+
+h4 {
+    color: #A5A64B;
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    background-color: #5C5C07;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFBF;
+}
+
+.collaborator span img {
+    margin-right: 8px;
+    bottom: -6px;
+    position: relative;
+}
+
+.collaborator span h4 {
+    display: inline;
+    margin-right: 12px; 
+    vertical-align: middle;
+}
+
+.collaborator .tags span {
+    background-color: transparent;
+    padding: 4px 10px;
+    border: 2px solid #A5A64B;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #A5A64B;
+}
+
+.collaborator .tags {
+    background-color: transparent;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-left: 20px;
+}
+
+.link-section {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.link-btn {
+    background-color: #A5A64B;
+    color: #000;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.link-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid #d5ff04;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.link-btn:hover {
+    box-shadow: 0 2px 0 #2f3800;
+}
+
+.link-btn:hover::after {
+    opacity: 1;
+}
+
+.link-btn img {
+    bottom: 2px;
+    margin-right: 12px;
+    vertical-align: middle;
+    position: relative;
+}
+
+hr {
+    border: 0.5px solid #3C3E1A;
+    margin: 20px 0;
+}
+
+.comments-section h4 {
+    color: #A5A64B;
+    margin-bottom: 10px;
+}
+
+.comment {
+    border: 1px solid #3C3E1A;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.add-comment-section {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.add-comment-section h4 {
+    color: #A5A64B;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.comment-input {
+    width: 100%;
+    min-height: 240px; 
+    background-color: #2A2F00;
+    border: 2px solid #3C3E1A;
+    border-radius: 10px;
+    color: #fff;
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    padding: 10px;
+    resize: vertical;
+    outline: none;
+    white-space: pre-wrap;    
+    word-wrap: break-word;     
+    overflow-wrap: break-word; 
+    overflow-y: auto;       
+    overflow-x: hidden;        
+
+    transition: border-color 0.2s ease;
+}
+
+.comment-input:focus {
+    border-color: #A5A64B;
+}
+
+.post-comment-btn {
+    width: auto;
+    background-color: #4D5C00;
+    color: #ffffff80;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.post-comment-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid #d5ff04;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.post-comment-btn:hover {
+    box-shadow: 0 2px 0 #2f3800;
+}
+
+.post-comment-btn:hover::after {
+    opacity: 1;
+}
+

@@ -11,7 +11,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url(https://i.postimg.cc/NG3JyLrq/Desktop-1-1.png);
+	background-image: url('../IMGS/Desktop - 1(1).png');
 	box-sizing: border-box;
 	background-size: cover;
 	background-position: center;
@@ -305,6 +305,6 @@ input[type="password"]::-moz-placeholder {
 }
 
 #agree-terms:checked + label::before {
-	background-image: url(https://i.postimg.cc/V66tL9Fb/Frame-1021.png);
+	background-image: url(../IMGS/Frame\ 1021.png);
 	background-size: cover;
 }
