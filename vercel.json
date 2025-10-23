@@ -6,6 +6,10 @@
     },
     "routes": [
         {
+        "src": "/(.*)",
+        "dest": "/public/index.php"
+        },
+        {
         "src": "/CSS/(.*)",
         "dest": "/public/CSS/$1"
         },
