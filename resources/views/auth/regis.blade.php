@@ -52,7 +52,7 @@
             <div class="password-row">
                 <input id="password" name="password" type="password" placeholder="Password" required />
                 <button type="button" class="password-toggle" aria-label="Toggle password visibility" aria-pressed="false">
-                    <img src="https://i.postimg.cc/FKzgCQJq/eye.png" width="20" height="20" alt="show password" />
+                    <img src="\images\eye.png" width="20" height="20" alt="show password" />
                 </button>
             </div>
 

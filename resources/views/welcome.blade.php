@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +24,11 @@
         {{-- Top Section --}}
         <div class="top-half">
             <div class="hero-text">
-                <h1>Track Projects, Milestones,<br> 
+                <h1>Track Projects, Milestones,<br>
                     <span class="line-two">and People All In One Place</span>
                 </h1>
                 <p>
-                    Record project names, start/end dates, status, assignees, short & long descriptions, attachments 
+                    Record project names, start/end dates, status, assignees, short & long descriptions, attachments
                     <br>and milestones, then export the whole thing to a clean static HTML report.
                 </p>
             </div>
@@ -37,32 +38,32 @@
         <div class="bottom-half">
             <div class="search-section">
                 <input type="text" placeholder="Search projects, tasks, or teams...">
-                <button id="searchBtn" type="button" class="btn-primary" style="cursor: pointer">Search</button>
-                {{-- <img src="https://drive.google.com/uc?export=view&id=1jsdtmSUXDAnj6b873MqGG_j9_labEIKq" alt="Search Icon" class="search-icon"> --}}
+                <button id="searchBtn" type="button" class="btn-primary" style="cursor: pointer"><img src="images\Oval.png" alt="Search Icon" class="search-icon">
+                </button>
             </div>
 
             <script>
-            $(function(){
-                $('#searchBtn').on('click', function(){
-                    const q = $('.search-section input[type="text"]').val().trim();
-                    console.log(q);
-                    if (!q) {
-                        $('.search-section input[type="text"]').focus();
-                        return;
-                    }
-                    // Go to your search route with query param (adjust URL if needed)
-                    window.location.href = '{{ url("/user/find") }}' + "/" + encodeURIComponent(q);
-                });
+                $(function() {
+                    $('#searchBtn').on('click', function() {
+                        const q = $('.search-section input[type="text"]').val().trim();
+                        console.log(q);
+                        if (!q) {
+                            $('.search-section input[type="text"]').focus();
+                            return;
+                        }
+                        // Go to your search route with query param (adjust URL if needed)
+                        window.location.href = '{{ url("/user/find") }}' + "/" + encodeURIComponent(q);
+                    });
 
-                $('#clearBtn').on('click', function(){
-                    $('.search-section input[type="text"]').val('').focus();
+                    $('#clearBtn').on('click', function() {
+                        $('.search-section input[type="text"]').val('').focus();
+                    });
                 });
-            });
             </script>
             <div class="promo-text-section">
                 <p>
-                    <span class="t1">Let’s</span> 
-                    <span class="t2">Join</span> 
+                    <span class="t1">Let’s</span>
+                    <span class="t2">Join</span>
                     <span class="t3">Us</span>
                 </p>
             </div>
@@ -82,4 +83,5 @@
         </div>
     </div>
 </body>
+
 </html>

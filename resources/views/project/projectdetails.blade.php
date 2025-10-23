@@ -17,8 +17,8 @@
 </head>
 <body>
     <header>  
-        <img class="logo" src="{{ asset('https://pouch.jumpshare.com/preview/fPpqkXM7WzFcPHmhbPKkXwR938JiGQVUgdji8sTP8pJcBiQXHOaci62OEK3H1LvMVZXbsatgj5ITUWQpsWReOzWFPH5p5hwX-AwRCVBCDy4') }}" alt="Logo">
-        <img src="{{ asset('https://pouch.jumpshare.com/preview/fAURzBTkLDx5uCgCv9Lini69NkOFgn5ytf7tHa4eQ8HldgmBJFa29TK1QQZ58Jm6FBnGYulZ7fgJXStAkNVXPcaMzrhidpaSwdq4YEEGDKQ') }}" alt="Status Icon" class="status">
+        <img class="logo" src="{{ asset('images\Group 32.svg') }}" alt="Logo">
+        <img src="{{ asset('images\Status Done.svg') }}" alt="Status Icon" class="status">
     </header>
 
     <main>
@@ -27,18 +27,18 @@
                 <div class="project-name-time">
                     <h1>{{ $project->project_name ?? 'Project Title' }}</h1>
                     <div class="project-times-details">
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/k9LEvQ8obRTci8CtBqEvb31VZu0Wi0XVwuNBD32SCqYwlRAMaGjDrdaAm64_EbVfFBnGYulZ7fgJXStAkNVXPczbZtu5uEJQbdXw7qoGlww') }}" alt="Calendar Icon" class="calendar-icon">
+                        <img src="{{ asset('images\Vector Calendar.svg') }}" alt="Calendar Icon" class="calendar-icon">
                         <p class="dates">{{ $project->project_start ?? 'DD/MM/YYYY' }} -</p>
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/cF74zRhRaNpj7QnBk8bBjO9tzE2Iu6oTSYbfdVmo3kfMaEFyCJQe5JynFFn0S7PrFBnGYulZ7fgJXStAkNVXPYlNZFVuHI9htH9JJ8xAjK8') }}" alt="Time Icon" class="time-icon">
+                        <img src="{{ asset('images\Vector Time.svg') }}" alt="Time Icon" class="time-icon">
                         <p class="week-text">{{ $project->project_end ?? 'has not ended' }}</p>
                     </div>
                 </div>
                 <div class="project-tab-buttons">
                     <button class="edit-btn">
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/Y385137rEY02Ji2rC-RT72hwV117mfb2bClqHujcYmGuIZP3-o1Vx010ypCKL4EqFBnGYulZ7fgJXStAkNVXPRkqW1SYpqoTn9Oftyb8Emk') }}" alt="Edit">
+                        <img src="{{ asset('images\Vector edit.svg') }}" alt="Edit">
                     </button>
                     <button class="delete-btn">
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/m8HJ0pygE57P5bX6MLqjYI5i8ThwLRQTYiJnpuA8Fz_BvSEmIEqirsCbF-QXWU6XFBnGYulZ7fgJXStAkNVXPRNX3cxg5jQ6q3xzu5dWWHI') }}" alt="Delete">
+                        <img src="{{ asset('images\Vector delete.svg') }}" alt="Delete">
                     </button>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="collaborator">
                     <span>
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/VuP1qx4NVVHCRDq2jLgKHU_8bnaIQfNdHYtv_TeLtSNM8hoq7v-HKtv72mxLtS67FBnGYulZ7fgJXStAkNVXPZngA-Rp0b1yZCRFgzFlmM0') }}" alt="Collaborator Icon">
+                        <img src="{{ asset('images\Icon.svg') }}" alt="Collaborator Icon">
                         <h4>Collaborator</h4>
                     </span>
                     <div class="tags">
@@ -76,11 +76,11 @@
             <div class="link-section">
                 @if(!empty($project->project_links))
                     <a href="{{ $project->link }}" target="_blank" class="link-btn">
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/_oNocaCluao8XEZ-j9D6vSb9VgIoymQUldn-MFkEiuJhgqIRtbvCe8WexwoFJotmFBnGYulZ7fgJXStAkNVXPQjhN2Y31521YAy_VcoR_r4 ') }}" alt="Link">Link
+                        <img src="{{ asset('images\Vector Link copy.svg') }}" alt="Link">Link
                     </a>
                 @else
                     <button class="link-btn" disabled>
-                        <img src="{{ asset('https://pouch.jumpshare.com/preview/_oNocaCluao8XEZ-j9D6vSb9VgIoymQUldn-MFkEiuJhgqIRtbvCe8WexwoFJotmFBnGYulZ7fgJXStAkNVXPQjhN2Y31521YAy_VcoR_r4') }}" alt="Link">No Link
+                        <img src="{{ asset('images\Vector Link copy.svg') }}" alt="Link">No Link
                     </button>
                 @endif
             </div>
