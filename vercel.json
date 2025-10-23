@@ -11,10 +11,7 @@
         }
     ],
     "routes": [
-        {
-            "src": "/(css/)?([a-zA-Z0-9_\\-]+\\.(ico|txt|webp|css|js|png|jpg))$",
-            "dest": "/public/$1$2"
-        },
+        
         { 
             "src": "/(CSS|css|js|images|vendor|assets|build)/(.+)",
             "dest": "public/$1/$2"
@@ -40,7 +37,6 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "KOSONG" : ""
+        "SESSION_DRIVER": "cookie"
     }
 }
