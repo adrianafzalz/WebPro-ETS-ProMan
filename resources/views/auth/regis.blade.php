@@ -14,7 +14,7 @@
 
 <body>
     <div class="bg-fullscreen">
-        <form class="register-tab" method="POST" action="#">
+        <form class="register-tab" method="POST" action="/auth/register">
             @csrf
 
             <div class="reg-heading">Create New Account</div>
@@ -44,8 +44,8 @@
             </div>
 
             {{-- Username / Email --}}
-            <div class="email-row">
-                <input type="email" name="email" placeholder="Username" value="{{ old('email') }}" required />
+            <div class="user-name-row">
+                <input type="text" name="user_name" placeholder="Username" value="{{ old('email') }}" required />
             </div>
 
             {{-- Password --}}

@@ -7,16 +7,21 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Models\PROJECT;
+use App\Models\PROJECTTECH;
+use App\Models\PROJECTSTATUS;
 
 
 class ProjectController extends Controller
 {
     public function createPage()
     {
-        return view('project.create');
+
+        $allAvailableTech = PROJECTTECH::get();
+
+        return view('project.create')->with('allTech',$allAvailableTech);
     }
 
-    
+
     public function createProject(Request $request)
     {
         try {

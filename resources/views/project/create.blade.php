@@ -22,7 +22,7 @@
       <p class="subtitle">Fill in the details to create a new project</p>
 
       {{-- Laravel form --}}
-      <form method="POST" action="{{ route('projects.store') }}">
+      <form method="POST" action="{{ route('project.create.attempt') }}">
         @csrf
 
         <label for="name">Project Name *</label>
@@ -31,9 +31,9 @@
         <label for="status">Status *</label>
         <select id="status" name="status" required>
           <option value="" disabled selected>Select project status</option>
-          <option value="Planning" {{ old('status') == 'Planning' ? 'selected' : '' }}>Planning</option>
-          <option value="Ongoing" {{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-          <option value="Completed" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
+          <option value="1" {{ old('status') == 'Planning' ? 'selected' : '' }}>Planning</option>
+          <option value="2" {{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
+          <option value="3" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
         </select>
 
         <div class="row">
@@ -64,9 +64,12 @@
             <div class="inline-input">
               <select id="technologies" name="technologies[]">
                 <option value="" disabled selected>Select Tech</option>
-                <option>Laravel</option>
+                @foreach($allTech as $techoption)
+                    <option value="{{$techoption->ID}}">{{$techoption->tech_name}}</option>
+                @endforeach
+                {{-- <option>Laravel</option>
                 <option>React</option>
-                <option>Python</option>
+                <option>Python</option> --}}
               </select>
               <button type="button" class="add-btn" onclick="addTechSelect()">+</button>
             </div>
@@ -80,7 +83,7 @@
         </div>
 
         <div class="actions">
-          <a href="{{ route('projects.index') }}" class="cancel-btn">Cancel</a>
+          <a href="{{ route('user.me') }}" class="cancel-btn">Cancel</a>
           <button type="submit" class="create-btn">Create Project</button>
         </div>
       </form>

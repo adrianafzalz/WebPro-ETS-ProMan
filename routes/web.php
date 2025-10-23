@@ -52,7 +52,7 @@ Route::prefix('/project')->group(function() {
     
     Route::get('/detail/{id}', [ProjectController::class, 'seeProject'])->name('project.detail');
 
-    Route::post('/edit', [ProjectController::class, 'createProject'])->name('project.create')->middleware('authCheck');
+    Route::post('/edit', [ProjectController::class, 'createProject'])->name('project.edit')->middleware('authCheck');
     // Route::post('/create', [ProjectController::class, 'createProject'])->name('project.create');
     // Route::post('/create', [ProjectController::class, 'createProject'])->name('project.create');
 });

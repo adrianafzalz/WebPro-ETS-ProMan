@@ -23,8 +23,33 @@
             </div>
 
             <div class="search-bar">
+                <button id="searchBtn" class="search-icon" style="cursor: pointer">Search</button>
                 <input type="text" placeholder="Search" name="search" value="{{ request('search') }}">
-                <img src="{{ asset('https://i.postimg.cc/zXBRCkZz/Oval.png') }}" alt="Search Icon" class="search-icon">
+                {{-- <img src="{{ asset('https://i.postimg.cc/zXBRCkZz/Oval.png') }}" alt="Search Icon" class="search-icon"> --}}
+            </div>
+
+
+            <script>
+            $(function(){
+                $('#searchBtn').on('click', function(){
+                    const q = $('.search-bar input[type="text"]').val().trim();
+                    console.log(q);
+                    if (!q) {
+                        $('.search-bar input[type="text"]').focus();
+                        return;
+                    }
+                    
+                    window.location.href = '{{ url("/user/find") }}' + "/" + encodeURIComponent(q);
+                });
+            });
+            </script>
+
+            <div class="profile-icon" style="margin-left:1rem;">
+                @auth
+                    <a href="{{ route('project.create.page') }}" aria-label="Create Project" style="color: black">
+                        <button class="create-btn" type="sign-in">+</button>
+                    </a>
+                @endauth
             </div>
 
             <div class="auth-buttons">

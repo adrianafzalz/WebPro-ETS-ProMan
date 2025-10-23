@@ -13,12 +13,10 @@ class AuthController extends Controller
 {
     public function showRegisForm()
     {
+        if (Auth::check()) {
+            return redirect()->route('user.profile', ['id' => Auth::id()]);
+        }
         return view('auth.regis');
-    }
-
-    public function attemptRegis()
-    {
-
     }
 
 
@@ -58,7 +56,7 @@ class AuthController extends Controller
         ])->onlyInput('user_name');
     }
 
-    public function register(Request $request) {
+    public function attemptRegis(Request $request) {
         $request->validate([
             'user_name' => 'required|string',
             'password' => 'required|string',
@@ -67,6 +65,8 @@ class AuthController extends Controller
 
         // check user_name is available
         $is_user_name_taken = (USER::where('user_name','LIKE',$request->input('user_name'))->count()) > 0;
+
+        error_log($is_user_name_taken);
 
         if ($is_user_name_taken) {
             return back()->withErrors([
