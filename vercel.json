@@ -6,6 +6,8 @@
     },
 
     "routes": [
+        { "src": "/(css|js|images|fonts|favicon)/(.*)", "dest": "/public/$1/$2" },
+        { "src": "/(.*)\\.(.+)$", "dest": "/public/$1.$2" },
         {
             "src": "/(css/)?([a-zA-Z0-9_\\-]+\\.(ico|txt|webp|css|js|png|jpg))$",
             "dest": "/public/$1$2"
