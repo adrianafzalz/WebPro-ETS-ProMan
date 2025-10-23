@@ -6,7 +6,10 @@
     },
 
     "routes": [
-
+        {
+            "src": "/(css/)?([a-zA-Z0-9_\\-]+\\.(ico|txt|webp|css|js|png|jpg))$",
+            "dest": "/public/$1$2"
+        },
         {
         "src": "/CSS/(.*)",
         "dest": "/public/CSS/$1"
@@ -33,6 +36,7 @@
         }
     ],
     "env": {
+
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://web-pro-ets-pro-man.vercel.app",
