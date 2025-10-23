@@ -12,15 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
     
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('CSS/reseter.css') }}">
-    <link rel="stylesheet" href="{{ asset('CSS/ProjectDetails.css') }}">
+    <link rel="stylesheet" href="/CSS/reseter.css">
+    <link rel="stylesheet" href="/CSS/ProjectDetails.css">
 </head>
 <body>
     <header>  
         <a href="javascript:history.back()">
-            <img class="logo" src="{{ asset('images/Group 32.svg') }}" alt="Logo">
+            <img class="logo" src="/images/Group 32.svg" alt="Logo">
         </a> 
-        <img src="{{ asset('images\Status Done.svg') }}" alt="Status Icon" class="status">
+        <img src="/images\Status Done.svg" alt="Status Icon" class="status">
     </header>
 
     <main>
@@ -29,18 +29,18 @@
                 <div class="project-name-time">
                     <h1>{{ $project->project_name ?? 'Project Title' }}</h1>
                     <div class="project-times-details">
-                        <img src="{{ asset('images\Vector Calendar.svg') }}" alt="Calendar Icon" class="calendar-icon">
+                        <img src="/images\Vector Calendar.svg" alt="Calendar Icon" class="calendar-icon">
                         <p class="dates">{{ $project->project_start ?? 'DD/MM/YYYY' }} -</p>
-                        <img src="{{ asset('images\Vector Time.svg') }}" alt="Time Icon" class="time-icon">
+                        <img src="/images\Vector Time.svg" alt="Time Icon" class="time-icon">
                         <p class="week-text">{{ $project->project_end ?? 'has not ended' }}</p>
                     </div>
                 </div>
                 <div class="project-tab-buttons">
                     <button class="edit-btn">
-                        <img src="{{ asset('images\Vector edit.svg') }}" alt="Edit">
+                        <img src="/images\Vector edit.svg" alt="Edit">
                     </button>
                     <button class="delete-btn">
-                        <img src="{{ asset('images\Vector delete.svg') }}" alt="Delete">
+                        <img src="/images\Vector delete.svg" alt="Delete">
                     </button>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 </div>
                 <div class="collaborator">
                     <span>
-                        <img src="{{ asset('images\Icon.svg') }}" alt="Collaborator Icon">
+                        <img src="/images\Icon.svg" alt="Collaborator Icon">
                         <h4>Collaborator</h4>
                     </span>
                     <div class="tags">
@@ -78,11 +78,11 @@
             <div class="link-section">
                 @if(!empty($project->project_links))
                     <a href="{{ $project->link }}" target="_blank" class="link-btn">
-                        <img src="{{ asset('images\Vector Link copy.svg') }}" alt="Link">Link
+                        <img src="/images\Vector Link copy.svg" alt="Link">Link
                     </a>
                 @else
                     <button class="link-btn" disabled>
-                        <img src="{{ asset('images\Vector Link copy.svg') }}" alt="Link">No Link
+                        <img src="/images\Vector Link copy.svg" alt="Link">No Link
                     </button>
                 @endif
             </div>
