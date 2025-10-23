@@ -5,31 +5,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   height: 100vh;
   padding: 20px 0; /* ensure some breathing room on very short screens */
+=======
+  height: 75vh; /* 100vh → 75vh */
+>>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 }
 
 .modal {
+  top: 15%;
   background: #fff;
+<<<<<<< HEAD
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   width: 700px;
   max-height: 95vh; /* prevent overflowing the viewport */
   height: auto;
+=======
+  border-radius: 9px; /* 12px → 9px */
+  box-shadow: 0 3px 15px rgba(0,0,0,0.15); /* 0 4px 20px → 0 3px 15px */
+  width: 525px; /* 700px → 525px */
+  height: 662px; /* 883px → 662px */
+>>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
   max-width: 90%;
-  padding: 20px 30px;
+  padding: 15px 22.5px; /* 20px 30px → 15px 22.5px */
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   position: relative; /* key for absolute child positioning */
   margin: 0 auto; /* center horizontally */
+=======
+  position: relative;
+>>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 }
 
 .modal-content {
-  flex: 1; /* this lets content take up remaining space */
-  overflow-y: auto; /* scroll if content too long */
-  padding-bottom: 60px; /* space so buttons don't overlap */
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 45px; /* 60px → 45px */
 }
 
+<<<<<<< HEAD
 /* If the viewport height is small, align modal to top so it doesn't get pushed partly off-screen */
 @media (max-height: 900px) {
   body {
@@ -43,16 +60,18 @@ body {
 
 
 
+=======
+>>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 h2 {
   margin: 0;
-  font-size: 25px;
+  font-size: 18.75px; /* 25px → 18.75px */
   font-family: "Space Grotesk", sans-serif;
 }
 
 .subtitle {
   color: #7F889A;
-  font-size: 15px;
-  margin-bottom: 20px;
+  font-size: 11.25px; /* 15px → 11.25px */
+  margin-bottom: 15px; /* 20px → 15px */
   font-family: "Inter", sans-serif;
 }
 
@@ -62,70 +81,69 @@ form {
 }
 
 label {
-  margin-top: 12px;
-  margin-bottom: 4px;
+  margin-top: 9px; /* 12px → 9px */
+  margin-bottom: 3px; /* 4px → 3px */
   font-weight: 600;
-  font-size: 16px;
+  font-size: 12px; /* 16px → 12px */
   font-family: "Inter", sans-serif;
 }
 
 input, select, textarea {
   width: 100%;
-  height: 41px;
-  padding: 0px 10px;
+  height: 31px; /* 41px → 31px */
+  padding: 0px 7.5px; /* 0 10px → 0 7.5px */
   border: 1px solid #7F889A;
-  border-radius: 6px;
-  font-size: 15px;
+  border-radius: 4.5px; /* 6px → 4.5px */
+  font-size: 11.25px; /* 15px → 11.25px */
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
 
 input {
-  color: #7F889A; /* abu-abu untuk placeholder */
+  color: #7F889A;
 }
 
 input:valid {
-  color: #000; 
+  color: #000;
 }
 
 select {
-  color: #7F889A; /* abu-abu untuk placeholder */
+  color: #7F889A;
 }
 
 select:valid {
-  color: #000; 
+  color: #000;
 }
 
 textarea {
   resize: vertical;
-  height: 80px;
-  padding: 10px;
+  height: 60px; /* 80px → 60px */
+  padding: 7.5px; /* 10px → 7.5px */
 }
 
 .row {
   display: flex;
-  gap: 10px;
+  gap: 7.5px; /* 10px → 7.5px */
 }
 
 .col {
   flex: 1;
-  margin-top: 20px;
+  margin-top: 15px; /* 20px → 15px */
 }
 
 .inline-input {
   display: flex;
-  gap: 6px;
+  gap: 4.5px; /* 6px → 4.5px */
 }
 
 .add-btn {
-  
   background-color: #577101;
   color: #fff;
   border: none;
-  width: 32px;
-  height: 41px;
-  border-radius: 6px;
-  font-size: 20px;
+  width: 24px; /* 32px → 24px */
+  height: 31px; /* 41px → 31px */
+  border-radius: 4.5px; /* 6px → 4.5px */
+  font-size: 15px; /* 20px → 15px */
   font-family: "Inter", sans-serif;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -137,7 +155,7 @@ textarea {
 .add-btn:hover {
   background-color: #6b8a0a;
   transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(87, 113, 1, 0.4);
+  box-shadow: 0 0 7.5px rgba(87, 113, 1, 0.4); /* 10px → 7.5px */
 }
 
 .add-btn:active {
@@ -146,10 +164,10 @@ textarea {
 
 .actions {
   position: absolute;
-  bottom: 20px;
-  right: 30px;
+  bottom: 15px; /* 20px → 15px */
+  right: 22.5px; /* 30px → 22.5px */
   display: flex;
-  gap: 10px;
+  gap: 7.5px; /* 10px → 7.5px */
 }
 
 /* Responsive adjustments */
@@ -223,42 +241,52 @@ textarea {
 .error-box li { margin-bottom: 6px; }
 
 .cancel-btn {
-  background: #fff;
-  border: 1px solid #d1d5db;
-  padding: 8px 14px;
-  border-radius: 6px;
+  background: #710101;
+  color: #fff;
+  border: none;
+  width: 97.5px;
+  height: 20px;
+  padding: 6px 10.5px;
   cursor: pointer;
   font-family: "Inter", sans-serif;
+  font-size: 11.25px;
+  text-align: center;
+  display: flex; /* tambahkan */
+  align-items: center; /* vertikal tengah */
+  justify-content: center; /* horizontal tengah */
   transition: all 0.25s ease;
+  text-decoration: none;
+  border-radius: 4.5px;
+  transform: translateX(-0.75px);
 }
 
+
 .cancel-btn:hover {
-  background-color: #f3f4f6;
-  transform: translateY(-1px);
-  width: 130px;
-  height: 41px;
-  font-size: 15px;
+  transform: translateY(-0.75px);
+  box-shadow: 0 3px 7.5px rgba(87, 113, 1, 0.3); /* 0 4px 10px → 0 3px 7.5px */
+}
+
+.cancel-btn:active {
+  transform: scale(0.97);
 }
 
 .create-btn {
-
   background: #577101;
   color: #fff;
   border: none;
-  width: 130px;
-  height: 41px;
-  padding: 8px 14px;
-  border-radius: 6px;
+  width: 97.5px; /* 130px → 97.5px */
+  height: 31px; /* 41px → 31px */
+  padding: 6px 10.5px; /* 8px 14px → 6px 10.5px */
+  border-radius: 4.5px; /* 6px → 4.5px */
   cursor: pointer;
   font-family: "Inter", sans-serif;
-  font-size: 15px;
+  font-size: 11.25px; /* 15px → 11.25px */
   transition: all 0.25s ease;
 }
 
 .create-btn:hover {
-  background-color: #6b8a0a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(87, 113, 1, 0.3);
+  transform: translateY(-0.75px);
+  box-shadow: 0 3px 7.5px rgba(87, 113, 1, 0.3); /* 0 4px 10px → 0 3px 7.5px */
 }
 
 .create-btn:active {
