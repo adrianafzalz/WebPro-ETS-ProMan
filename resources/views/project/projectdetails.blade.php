@@ -17,7 +17,9 @@
 </head>
 <body>
     <header>  
-        <img class="logo" src="{{ asset('images\Group 32.svg') }}" alt="Logo">
+        <a href="javascript:history.back()">
+            <img class="logo" src="{{ asset('images/Group 32.svg') }}" alt="Logo">
+        </a> 
         <img src="{{ asset('images\Status Done.svg') }}" alt="Status Icon" class="status">
     </header>
 

@@ -20,6 +20,7 @@ header {
     left: 22px;
     height: 32px;
     width: 32px;
+    cursor: pointer;
 }
 
 .status {
