@@ -24,8 +24,8 @@
         {{-- Top Section --}}
         <div class="top-half">
             <div class="hero-text">
-                <h1>Track Projects, Milestones,<br>
-                    <span class="line-two">and People All In One Place</span>
+                <h1>Track Projects and People<br>
+                    <span class="line-two">All In One Place</span>
                 </h1>
                 <p>
                     Record project names, start/end dates, status, assignees, short & long descriptions, attachments
