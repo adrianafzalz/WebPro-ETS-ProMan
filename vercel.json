@@ -4,9 +4,32 @@
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.7.4" }
     },
+    "builds"  : [
+        {
+            "src" : "public/index.php",
+            "use" :"@vercel/php"
+        }
+    ],
     "routes": [
+
+        {
+        "src": "/CSS/(.*)",
+        "dest": "/public/CSS/$1"
+        },
+        {
+        "src": "/images/(.*)",
+        "dest": "/public/images/$1"
+        },
+        {
+        "src": "/(favicon.ico|robots.txt|css|js|images|fonts|storage/.*)",
+        "dest": "/public/$1"
+        },
         { 
-            "src": "/(css|js|images|vendor|assets|build)/(.+)",
+            "src": "/(CSS|images|css|js|images|vendor|assets|build)/(.+)",
+            "dest": "public/index.php"
+        },
+        { 
+            "src": "/(CSS|images|css|js|images|vendor|assets|build)/(.+)",
             "dest": "public/$1/$2"
         },
         {
@@ -17,7 +40,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://your.url.from.vercel.app",
+        "APP_URL": "https://web-pro-ets-pro-man.vercel.app",
         "APP_KEY": "add API key here from your .env file",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",

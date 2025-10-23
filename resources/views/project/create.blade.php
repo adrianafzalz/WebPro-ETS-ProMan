@@ -25,15 +25,31 @@
       <form method="POST" action="{{ route('project.create.attempt') }}">
         @csrf
 
+        {{-- Validation errors --}}
+        @if ($errors->any())
+          <div class="error-box" role="alert">
+            <strong>There were some problems with your input:</strong>
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
+
         <label for="name">Project Name *</label>
         <input id="name" name="name" type="text" placeholder="Enter project name" value="{{ old('name') }}" required />
 
         <label for="status">Status *</label>
         <select id="status" name="status" required>
-          <option value="" disabled selected>Select project status</option>
+          {{-- <option value="" disabled selected>Select project status</option>
           <option value="1" {{ old('status') == 'Planning' ? 'selected' : '' }}>Planning</option>
           <option value="2" {{ old('status') == 'Ongoing' ? 'selected' : '' }}>Ongoing</option>
-          <option value="3" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
+          <option value="3" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option> --}}
+
+            @foreach($allStatus as $statusoption)
+                <option value="{{$statusoption->ID}}">{{$statusoption->status_name}}</option>
+            @endforeach
         </select>
 
         <div class="row">
@@ -105,9 +121,9 @@
       div.innerHTML = `
         <select name="technologies[]">
           <option value="" disabled selected>Select Tech</option>
-          <option>Laravel</option>
-          <option>React</option>
-          <option>Python</option>
+          @foreach($allTech as $techoption)
+                <option value="{{$techoption->ID}}">{{$techoption->tech_name}}</option>
+            @endforeach
         </select>
         <button type="button" class="add-btn" onclick="this.parentNode.remove()">−</button>
       `;
