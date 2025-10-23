@@ -12,15 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('CSS/reseter.css') }}">
-    <link rel="stylesheet" href="{{ asset('CSS/ListPage.css') }}">
+    <link rel="stylesheet" href="/CSS/reseter.css">
+    <link rel="stylesheet" href="/CSS/ListPage.css">
 </head>
 
 <body>
     <header>
         <div class="top-bar">
             <div class="profile-icon">
-                <img src="{{ asset('images\Profile Buttons.svg') }}" alt="Profile Icon">
+                <img src="/images/Profile Buttons.svg" alt="Profile Icon">
             </div>
 
             <div class="search-bar">
@@ -33,10 +33,10 @@
                 @auth
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
-                    <button type="submit" class="sign-in">Logout<img src="{{ asset('images\logout.svg') }}"></button>
+                    <button type="submit" class="sign-in">Logout<img src="/images/logout.svg"></button>
                 </form>
                 @else
-                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="{{ asset('images\Vector Line.svg') }}"></button></a>
+                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="/images/Vector Line.svg"></button></a>
                 <a href="{{ route('register') }}"><button class="register">Register</button></a>
                 @endauth
             </div>
@@ -68,11 +68,11 @@
                     <div class="card-actions">
                         <div class="icons">
                             <span>
-                                <img src="{{ asset('images\Vector Bookmark.svg') }}" alt="Bookmark">
+                                <img src="/images/Vector Bookmark.svg" alt="Bookmark">
                             </span>
                             @if(!empty($project->link))
                             <a href="{{ $project->link }}" target="_blank">
-                                <img src="{{ asset('images\Vector link copy for list.svg') }}" alt="Link">
+                                <img src="/images/Vector link copy for list.svg" alt="Link">
                             </a>
                             @endif
                         </div>
