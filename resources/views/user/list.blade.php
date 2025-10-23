@@ -75,7 +75,6 @@
             <h1><span>{{ Auth::user()->user_name ?? 'Guest' }}’s</span> Projects</h1>
             <p>
                 Welcome to your project dashboard. Here you can see all your active, planned, and completed projects. <br> <br>
-                {{ Auth::user()->user_desc}} 
             </p>
         </div>
     </header>
