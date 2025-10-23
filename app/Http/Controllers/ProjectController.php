@@ -28,73 +28,76 @@ class ProjectController extends Controller
 
     public function createProject(Request $request)
     {
-        // error_log((string)$request->input('technologies'));
-        error_log($request->input('name'));
-        // try {
-        // {
-            DB::beginTransaction();
-            // DB::transaction(function() use ($request) {
-            $new_project = PROJECT::create([
-                'USER_ID_PM' => Auth::id(),
-                'PROJECT_STATUS_ID' => $request->input('status'),
-                'project_name'      => $request->input('name'),
-                'project_desc'      => $request->input('description'),
-                'project_start'     => $request->input('start_date'),
-                'project_date'      => $request->input('end_date'),
-                // 'project_links'     => json_decode($request->input('links'),true),
-                'project_links'     => $request->input('links') ?? '[]',
-                // 'project_milestone' => json_decode($request->input('milestone'),true),
-            ]);
-            error_log($new_project->ID);
+        // Validate input
+        $validated = $request->validate([
+            'name' => ['required','string','max:255'],
+            'status' => ['required'],
+            'start_date' => ['required','date'],
+            'end_date' => ['required','date','after_or_equal:start_date'],
+            'description' => ['required','string'],
+            'links' => ['nullable','array'],
+            'links.*' => ['nullable','string','max:2000'],
+            'technologies' => ['nullable','array'],
+            'technologies.*' => ['nullable','integer'],
+            'collaborators' => ['nullable','array'],
+            'collaborators.*' => ['nullable','string','max:255'],
+        ]);
 
-            if ($request->input('technologies') != null) {
-                foreach ($request->input('technologies') as $tech_id) {
-                    if ($tech_id == "" || $tech_id == null) {
-                        continue;
-                    }
+        // Sanitize arrays: remove empty/null values and reindex
+        $links = array_values(array_filter((array) $request->input('links', []), function ($v) {
+            return !is_null($v) && trim((string) $v) !== '';
+        }));
+
+        $technologies = array_values(array_filter((array) $request->input('technologies', []), function ($v) {
+            return !is_null($v) && trim((string) $v) !== '';
+        }));
+
+        $collaborators = array_values(array_filter((array) $request->input('collaborators', []), function ($v) {
+            return !is_null($v) && trim((string) $v) !== '';
+        }));
+
+        try {
+            $new_project = DB::transaction(function () use ($validated, $links, $technologies, $collaborators) {
+                $project = PROJECT::create([
+                    'USER_ID_PM' => Auth::id(),
+                    'PROJECT_STATUS_ID' => $validated['status'],
+                    'project_name' => $validated['name'],
+                    'project_desc' => $validated['description'],
+                    'project_start' => $validated['start_date'],
+                    'project_date' => $validated['end_date'],
+                    'project_links' => empty($links) ? null : json_encode($links),
+                ]);
+
+                // Attach technologies
+                foreach ($technologies as $tech_id) {
+                    if (!is_numeric($tech_id)) continue;
                     PROJECTTECHSTACK::create([
-                        'TECH_ID' => $tech_id,
-                        'PROJECTS_ID' => $new_project->ID,
+                        'TECH_ID' => (int) $tech_id,
+                        'PROJECTS_ID' => $project->ID,
                     ]);
                 }
-            }
-            if ($request->input('collaborators') != null) {
 
-                foreach ($request->input('collaborators') as $collaborator_uname) {
-                    if ($collaborator_uname == "" || $collaborator_uname == null) {
-                        continue;
-                    }
-                    $collaborator_uname = "orang1";
-                    $userID = USER::where('user_name','LIKE',$collaborator_uname);
-                    if ($userID->count() <= 0) {
-                        DB::rollBack();
-                        return back()->withErrors([
-                            'err' => 'collaborator '.$collaborator_name.' is not exist in our database',
-                        ])->withInput();
+                // Attach collaborators
+                foreach ($collaborators as $collaborator_uname) {
+                    $user = USER::where('user_name', 'LIKE', $collaborator_uname)->first();
+                    if (!$user) {
+                        throw new \Exception('Collaborator "' . $collaborator_uname . '" does not exist');
                     }
                     COLLABORATOR::create([
-                        'USER_ID' => $userID->get()->first()->ID,
-                        'PROJECTS_ID' => $new_project->ID,
+                        'USER_ID' => $user->ID,
+                        'PROJECTS_ID' => $project->ID,
                     ]);
-    
-    
                 }
-            }
-            // });
 
-            
+                return $project;
+            });
 
-            DB::commit();
-
-            return "success";
-        // } catch (\Exception $e) {
-        // // }{
-        //     // DB::rollBack();
-        //     error_log("gagal");
-        //     return $e;
-        // }
-
-        
+            // success — redirect to project details or return success
+            return redirect()->route('project.show', [$new_project->ID])->with('success', 'Project created');
+        } catch (\Exception $e) {
+            error_log('Project create failed: ' . $e->getMessage());
+            return back()->withErrors(['err' => $e->getMessage()])->withInput();
+        }
     }
 
     public function seeProject(Request $request, string $project_id)
