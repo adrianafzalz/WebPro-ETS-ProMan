@@ -5,39 +5,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  height: 100vh;
-  padding: 20px 0; /* ensure some breathing room on very short screens */
-=======
   height: 75vh; /* 100vh → 75vh */
->>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 }
 
 .modal {
   top: 15%;
   background: #fff;
-<<<<<<< HEAD
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  width: 700px;
-  max-height: 95vh; /* prevent overflowing the viewport */
-  height: auto;
-=======
   border-radius: 9px; /* 12px → 9px */
   box-shadow: 0 3px 15px rgba(0,0,0,0.15); /* 0 4px 20px → 0 3px 15px */
   width: 525px; /* 700px → 525px */
   height: 662px; /* 883px → 662px */
->>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
   max-width: 90%;
   padding: 15px 22.5px; /* 20px 30px → 15px 22.5px */
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  position: relative; /* key for absolute child positioning */
-  margin: 0 auto; /* center horizontally */
-=======
   position: relative;
->>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 }
 
 .modal-content {
@@ -46,22 +28,6 @@ body {
   padding-bottom: 45px; /* 60px → 45px */
 }
 
-<<<<<<< HEAD
-/* If the viewport height is small, align modal to top so it doesn't get pushed partly off-screen */
-@media (max-height: 900px) {
-  body {
-    align-items: flex-start;
-  }
-  .modal {
-    margin-top: 18px;
-    margin-bottom: 18px;
-  }
-}
-
-
-
-=======
->>>>>>> 1fbf6d7d1945d199093cdb6e4e88264cae7de579
 h2 {
   margin: 0;
   font-size: 18.75px; /* 25px → 18.75px */
