@@ -11,26 +11,6 @@
             "dest": "/public/$1$2"
         },
         {
-        "src": "/CSS/(.*)",
-        "dest": "/public/CSS/$1"
-        },
-        {
-        "src": "/images/(.*)",
-        "dest": "/public/images/$1"
-        },
-        {
-        "src": "/(favicon.ico|robots.txt|css|js|images|fonts|storage/.*)",
-        "dest": "/public/$1"
-        },
-        { 
-            "src": "/(CSS|images|css|js|images|vendor|assets|build)/(.+)",
-            "dest": "public/index.php"
-        },
-        { 
-            "src": "/(CSS|images|css|js|images|vendor|assets|build)/(.+)",
-            "dest": "public/$1/$2"
-        },
-        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
