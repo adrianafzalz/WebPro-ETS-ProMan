@@ -20,7 +20,7 @@
     <header>
         <div class="top-bar">
             <div class="profile-icon">
-                <img src="/images\Profile Buttons.svg" alt="Profile Icon">
+                <img src="/images/Profile Buttons.svg" alt="Profile Icon">
             </div>
 
             <div class="search-bar">
@@ -33,10 +33,10 @@
                 @auth
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf
-                    <button type="submit" class="sign-in">Logout<img src="/images\logout.svg"></button>
+                    <button type="submit" class="sign-in">Logout<img src="/images/logout.svg"></button>
                 </form>
                 @else
-                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="/images\Vector Line.svg"></button></a>
+                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="/images/Vector Line.svg"></button></a>
                 <a href="{{ route('register') }}"><button class="register">Register</button></a>
                 @endauth
             </div>
@@ -68,11 +68,11 @@
                     <div class="card-actions">
                         <div class="icons">
                             <span>
-                                <img src="/images\Vector Bookmark.svg" alt="Bookmark">
+                                <img src="/images/Vector Bookmark.svg" alt="Bookmark">
                             </span>
                             @if(!empty($project->link))
                             <a href="{{ $project->link }}" target="_blank">
-                                <img src="/images\Vector link copy for list.svg" alt="Link">
+                                <img src="/images/Vector link copy for list.svg" alt="Link">
                             </a>
                             @endif
                         </div>

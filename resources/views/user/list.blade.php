@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="/CSS\reseter.css">
-    <link rel="stylesheet" href="/CSS\ListPage.css">
+    <link rel="stylesheet" href="/CSS/reseter.css">
+    <link rel="stylesheet" href="/CSS/ListPage.css">
 </head>
 
 <body>
@@ -21,13 +21,13 @@
         <div class="top-bar">
             <div class="profile-icon">
             <a href="{{ route('user.me') }}">
-                <img src="/images\Profile Buttons.svg" alt="Profile Icon">
+                <img src="/images/Profile Buttons.svg" alt="Profile Icon">
             </a>
             </div>
 
             <div class="search-bar">
                 <input type="text" placeholder="Search user">
-                <button id="searchBtn" type="button" class="btn-primary" style="cursor: pointer"><img src="\images\Oval.png" alt="Search Icon" class="search-icon">
+                <button id="searchBtn" type="button" class="btn-primary" style="cursor: pointer"><img src="/images/Oval.png" alt="Search Icon" class="search-icon">
                 </button>
             </div>
 
@@ -65,7 +65,7 @@
                     <button type="submit" class="register">Logout</button>
                 </form>
                 @else
-                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="/images\Vector Line.svg'"></button></a>
+                <a href="{{ route('login') }}"><button class="sign-in">Sign in<img src="/images/Vector Line.svg"></button></a>
                 <a href="{{ route('regis') }}"><button class="register">Register</button></a>
                 @endauth
             </div>
@@ -110,11 +110,11 @@
                     <div class="card-actions">
                         <div class="icons">
                             <span>
-                                <img src="/images\Vector Bookmark.svg" alt="Bookmark">
+                                <img src="/images/Vector Bookmark.svg" alt="Bookmark">
                             </span>
                             @if(!empty($project->link))
                             <a href="{{ $project->link }}" target="_blank">
-                                <img src="/images\Vector link copy for list.svg" alt="Link">
+                                <img src="/images/Vector link copy for list.svg" alt="Link">
                             </a>
                             @endif
                         </div>
