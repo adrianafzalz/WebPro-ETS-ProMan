@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('CSS/reseter.css') }}">
-    <link rel="stylesheet" href="{{ asset('CSS/ListPage.css') }}">
+    <link rel="stylesheet" href="{{ asset('CSS\reseter.css') }}">
+    <link rel="stylesheet" href="{{ asset('CSS\ListPage.css') }}">
 </head>
 
 <body>
