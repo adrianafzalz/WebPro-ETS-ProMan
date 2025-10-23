@@ -1,25 +1,36 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-image: url("../images/Desktop\ -\ 1.svg");
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 75vh; /* 100vh → 75vh */
+  background-size: cover;
+  color: #fff;
+  font-weight: 500;
 }
 
 .modal {
+  margin: 2px;
   top: 15%;
-  background: #fff;
-  border-radius: 9px; /* 12px → 9px */
-  box-shadow: 0 3px 15px rgba(0,0,0,0.15); /* 0 4px 20px → 0 3px 15px */
-  width: 525px; /* 700px → 525px */
-  height: 662px; /* 883px → 662px */
+  background-color: #0a0b0181;
+  border-radius: 17px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+  width: 525px;
+  height: 662px;
   max-width: 90%;
-  padding: 15px 22.5px; /* 20px 30px → 15px 22.5px */
+  padding: 15px 22.5px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: relative; 
+  scrollbar-width: none; 
+  justify-content: center;
+  overflow: visible;
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
 }
 
 .modal-content {
@@ -35,7 +46,7 @@ h2 {
 }
 
 .subtitle {
-  color: #7F889A;
+  color: #EFEF0F;
   font-size: 11.25px; /* 15px → 11.25px */
   margin-bottom: 15px; /* 20px → 15px */
   font-family: "Inter", sans-serif;
@@ -58,15 +69,19 @@ input, select, textarea {
   width: 100%;
   height: 31px; /* 41px → 31px */
   padding: 0px 7.5px; /* 0 10px → 0 7.5px */
-  border: 1px solid #7F889A;
+  border: 1px solid #fdfdfdb5;
   border-radius: 4.5px; /* 6px → 4.5px */
   font-size: 11.25px; /* 15px → 11.25px */
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
 
+input, select, textarea::placeholder {
+  color: #fdfdfdb5;
+}
+
 input {
-  color: #7F889A;
+  color: #fdfdfdb5;
 }
 
 input:valid {
@@ -103,7 +118,7 @@ textarea {
 }
 
 .add-btn {
-  background-color: #577101;
+  background-color: #4D5C00;
   color: #fff;
   border: none;
   width: 24px; /* 32px → 24px */
@@ -119,8 +134,8 @@ textarea {
 }
 
 .add-btn:hover {
-  background-color: #6b8a0a;
-  transform: scale(1.1);
+  background-color: #a6c700;
+  transform: scale(1);
   box-shadow: 0 0 7.5px rgba(87, 113, 1, 0.4); /* 10px → 7.5px */
 }
 
