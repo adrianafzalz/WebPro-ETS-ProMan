@@ -7,8 +7,8 @@
 
     {{-- Fonts & CSS --}}
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/CSS/reseter.css') }}">
-    <link rel="stylesheet" href="/CSS/register.css') }}">
+    <link rel="stylesheet" href="/CSS/reseter.css">
+    <link rel="stylesheet" href="/CSS/register.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
